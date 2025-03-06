@@ -3,7 +3,7 @@ const loginRoutes = require('./routes/login');
 const signinRoutes = require('./routes/signin');
 const cors = require("cors");
 const bodyParser = require('body-parser');
-const db=require("./middelwares/config/db");
+const db=require("./config/db");
 const User=require("./models/User");
 
 
