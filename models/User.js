@@ -10,7 +10,7 @@ const UserSchema = new Schema({
     role: {
         type: String,
         required: true,
-        enum: ['consumer', 'producer']
+        enum: ['Consumers', 'Farmers']
     },
     email: {
         type: String,

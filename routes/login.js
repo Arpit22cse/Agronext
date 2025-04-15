@@ -2,6 +2,7 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const User = require('../models/User'); // Assuming you have a User model defined in ../models/User
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 const jwtSecret = process.env.JWT_SECRET;
 
 const router = express.Router();
@@ -38,7 +39,7 @@ router.post('/', async (req, res) => {
         res.cookie('token', token, { httpOnly: true, secure: true, sameSite: 'strict' });
 
         // If everything is good, send a success response
-        res.status(200).json({ message: 'Login successful' });
+        res.status(200).json({ message: 'Login successful' , status: 200});
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server error');

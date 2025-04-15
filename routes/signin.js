@@ -36,6 +36,7 @@ router.post('/', async (req, res) => {
         const validationResult = user.safeParse({ username, email, password, role });
 
         if (!validationResult.success) {
+            //console.log(validationResult.error.errors);
             return res.status(400).send(validationResult.error.errors);
         }
 
@@ -50,7 +51,10 @@ router.post('/', async (req, res) => {
         // Save user to database
         await newUser.save();
 
-        res.status(201).send('User created successfully');
+        res.status(201).json({
+            msg:'User created successfully',
+            status:200,
+        });
     } catch (error) {
         console.log(error);
         res.status(500).send('Server error');
